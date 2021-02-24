@@ -1,0 +1,44 @@
+nav {
+    background-color: #222;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+img.logo {
+    position: absolute;
+    left: 10px;
+    top: -5px;
+    height: 64px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li a {
+    float: right;
+    padding: 1rem;
+    margin: .5rem 2rem;
+    display: block;
+    font-family: Roboto, sans-serif;
+    font-size: 2rem;
+    color: #dddddd;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border: .2rem solid #ddd;
+    transition: .3s;
+}
+
+a.orders_number {
+    color: red;
+}
+
+nav ul li a:hover {
+    border: .2rem solid #222;
+    background-color: #ddd;
+    color: #222;
+}
+
