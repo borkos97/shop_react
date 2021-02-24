@@ -20,19 +20,15 @@ const list = [
 const ContactPage = () => {
     const [name, setName] = useState('') ;
     const [email, setEmail] = useState('') ;
-    const [text, setTetx] = useState('') ;
+    const [text, setText] = useState('') ;
 
     const handleNameChange = (e) => setName(e.target.value)
     const handleEmailChange = (e) => setEmail(e.target.value)
-    const handleTextChange = (e) => setTetx(e.target.value)
-
-    const emailIsValid = (email) => {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
-    }
+    const handleTextChange = (e) => setText(e.target.value)
 
     const handleClick = () => {
         if(name === '' || email === '' || text === '') alert("Wszystkie pola formularza powiny być wypełnione. Uzupełni brakujące pola")
-        else if (emailIsValid) alert("Niepoprawny mail")
+        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) alert("Niepoprawny mail")
         else alert("Formularz został wysłany, odezwiemy się do Ciebie jak najszybciej")
     }
 
@@ -42,9 +38,10 @@ const ContactPage = () => {
             <h4>{item.value}</h4>
         </div>
     ))
+
     return (
         <div>
-            <h2>Kontakt</h2>
+            <h2>kontakt</h2>
             <section className="contact">
                 <div className="wrap">
                     <form action="">
@@ -62,8 +59,6 @@ const ContactPage = () => {
             <p className={'nip'}>NIP: **********</p>
             <p className={'regon'}>REGON: *********</p>
             <p className={'krs'}>KRS: **********</p>
-
-
         </div>
     )
 }

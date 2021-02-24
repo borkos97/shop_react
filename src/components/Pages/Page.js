@@ -18,7 +18,9 @@ const Page = (props) => {
                 <Route path={"/products"} component={ProductListPage} />
                 <Route path={"/product/:id"} render={(matchProps) => <ProductPage {...matchProps} props={props.addOrder}/>} />
                 <Route path={"/contact"} component={ContactPage} />
-                <Route path={"/cart"} component={() => <CartPage cart={props.cart} deleteOrder={props.deleteOrder} payForOrder={props.payForOrder}/> }/>
+                <Route path={"/cart"} component={() => <CartPage cart={props.cart}
+                                                                 deleteOrder={props.deleteOrder}
+                                                                 payForOrder={props.payForOrder}/> }/>
                 <Route component={ErrorPage} />
             </Switch>
         </>

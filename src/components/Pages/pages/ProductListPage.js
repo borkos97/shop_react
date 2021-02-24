@@ -29,7 +29,7 @@ const ProductListPage = () => {
     )
     return (
         <div className={"categories"}>
-            <h2>Lista Poduktów</h2>
+            <h2>lista poduktów</h2>
             <ul>
                 <li>{list}</li>
             </ul>

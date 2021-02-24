@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Navigation.css'
 
@@ -30,7 +30,6 @@ const Navigation = (props) =>{
             <img className={'logo'} src={logo} alt="logo"/>
             <ul>
                 {menu}
-
             </ul>
         </nav>
     )
