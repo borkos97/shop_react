@@ -42,12 +42,12 @@ nav ul li a:hover {
     color: white;
 }
 
-.cart {
+a.cart {
     border: 2px solid #ddd;
 }
 
-.cart:hover {
-    border: .2rem solid #222;
+a.cart:hover {
+    /*border: .2rem solid #222;*/
     background-color: #ddd;
     color: #222;
 }
