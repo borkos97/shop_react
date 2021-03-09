@@ -8,7 +8,7 @@ const items = [
     {
         "id": 2,
         "type": "Silniki",
-        "name": "Silniuk elektryczny",
+        "name": "Silniki elektryczny",
         "price": 1200
     },
     {

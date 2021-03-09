@@ -5,7 +5,16 @@ import items from '../../../DataBase'
 
 import arrow from '../../../images/arrow.png'
 
-const ProductPage = ({match, props}) => {
+const ProductPage = ({match, cart, setCartState}) => {
+    const addToCart = (name, price) => {
+        const order = {
+            id: cart.length,
+            name: name,
+            price: price
+        }
+        setCartState(prevState => [...prevState, order])
+    }
+
     const list = items.map(product => {
         if (product.type === match.params.id)
             return <li>
@@ -15,10 +24,12 @@ const ProductPage = ({match, props}) => {
                 <div>
                     <p className={'price'}>Cena: {product.price} zł</p>
                 </div>
-                <button className={'addToCart'} onClick={() => props(product.name, product.price)}>Dodaj do koszyka
+                <button className={'addToCart'} onClick={() => addToCart(product.name, product.price)}>Dodaj do
+                    koszyka
                 </button>
             </li>
     })
+
     return (
         <>
             <Link to={'/products'}><img className={'arrow'} src={arrow} alt="Powrót"/></Link>

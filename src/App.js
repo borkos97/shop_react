@@ -10,38 +10,18 @@ import Footer from "./components/Footer/Footer";
 const App = () => {
     const [cart, setCart] = useState([])
 
-    const addToCart = (name, price) => {
-        const order = {
-            id: cart.length,
-            name:name,
-            price:price
-        }
-        setCart(prevState => [...prevState, order])
-    }
-
-    const deleteElement = (id) => {
-        let ordersList = [...cart];
-        ordersList = ordersList.filter(order => order.id !== id)
-        setCart(ordersList)
-    }
-
-    const payForOrder = () => {
-        setCart([])
-        alert('Zlecenie zostanie wykonane niezwłocznie po otrzymaniu zapłaty')
-    }
-
     return (
         <Router>
           <div className="app">
             <nav>
-              {<Navigation ordersNumber={cart}/>}
+              {<Navigation ordersNumber={cart.length}/>}
             </nav>
             <header>
               {<Header/>}
             </header>
             <main>
               <section className={"page"}>
-                <Page cart={cart} addOrder={addToCart} deleteOrder={deleteElement} payForOrder={payForOrder}/>
+                <Page cart={cart} setCartState={setCart}/>
               </section>
             </main>
             <footer>
@@ -49,7 +29,6 @@ const App = () => {
             </footer>
           </div>
         </Router>
-
     );
 }
 

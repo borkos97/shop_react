@@ -1,8 +1,17 @@
 import React from 'react';
 
-const CartPage = (props) => {
-    const {cart, deleteOrder, payForOrder} = props;
+const CartPage = ({cart, setCartState}) => {
 
+    const deleteElement = (id) => {
+        let ordersList = [...cart];
+        ordersList = ordersList.filter(order => order.id !== id)
+        setCartState(ordersList)
+    }
+
+    const payForOrder = () => {
+        setCartState([])
+        alert('Zlecenie zostanie wykonane niezwłocznie po otrzymaniu zapłaty')
+    }
 
     const payment = cart.reduce((sum, value) => sum + value.price, 0)
 
@@ -14,7 +23,7 @@ const CartPage = (props) => {
             <div>
                 <p className={'price'}>Cena: {product.price} zł</p>
             </div>
-            <button className={'addToCart'} onClick={() => deleteOrder(product.id)}>Usuń z koszyka</button>
+            <button className={'addToCart'} onClick={() => deleteElement(product.id)}>Usuń z koszyka</button>
         </li>
     ))
 

@@ -12,22 +12,23 @@ const list = [
     { name: "Strona główna", path: '/', exact: true },
 ]
 
-const Navigation = (props) =>{
-    const orders_number = props.ordersNumber.length
+const Navigation = ({ordersNumber}) =>{
     const menu = list.map(item => {
             if (item.name !== 'Koszyk') return <li key={item.name}>
                 <NavLink to={item.path} exact={item.exact ? item.exact: false}>{item.name}</NavLink>
             </li>
             else return <li key={item.name}>
-                <NavLink to={item.path} exact={item.exact ? item.exact: false}>{item.name}
-                <span className={'orders_number'}>  ({orders_number})</span>
+                <NavLink className={'cart'} to={item.path} exact={item.exact ? item.exact: false}>{item.name}
+                <span className={'orders_number'}>  ({ordersNumber})</span>
                 </NavLink>
             </li>
     }
     )
     return(
         <nav className={'main'}>
-            <img className={'logo'} src={logo} alt="logo"/>
+            <NavLink to={"/"}>
+                <img className={'logo'} src={logo} alt="logo"/>
+            </NavLink>
             <ul>
                 {menu}
             </ul>

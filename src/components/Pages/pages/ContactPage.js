@@ -9,11 +9,11 @@ import contact4 from '../../../images/contact/contact4.png';
 import contact5 from '../../../images/contact/contact5.png';
 
 const list = [
-    {value: "auto_czesci@domena.pl", img: contact1},
-    {value: "+48 654 567 654", img: contact2},
-    {value: "auto_czesci", img: contact3},
-    {value: "@auto_czesci", img: contact4},
-    {value: "auto_czesci", img: contact5},
+    {value: "carmania@domena.pl", img: contact1},
+    {value: "+48 111 222 333", img: contact2},
+    {value: "carmania", img: contact3},
+    {value: "@carmania", img: contact4},
+    {value: "carmania", img: contact5},
 
 ]
 
