@@ -7,14 +7,14 @@ import Menu from './Menu'
 
 import logo from '../../images/logo.png'
 
-const Navigation = ({ordersNumber}) =>{
+const Navigation = () =>{
     return(
         <nav className={'main'}>
             <NavLink to={"/"}>
                 <img className={'logo'} src={logo} alt="logo"/>
             </NavLink>
             <ul>
-                <Menu ordersNumber={ordersNumber}/>
+                <Menu/>
             </ul>
         </nav>
     )

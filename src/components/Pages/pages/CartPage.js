@@ -1,22 +1,25 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import {buyProduct, deleteProduct} from "../../../actions/appActions";
 
-const CartPage = ({cart, setCartState}) => {
+const CartPage = () => {
+
+    const dispatch = useDispatch();
+
+    const cart = useSelector(store => store.products);
+    const payment = cart.reduce((sum, value) => sum + value.price, 0)
 
     const deleteElement = (id) => {
-        let ordersList = [...cart];
-        ordersList = ordersList.filter(order => order.id !== id)
-        setCartState(ordersList)
+        dispatch(deleteProduct(id))
     }
 
     const payForOrder = () => {
-        setCartState([])
+        dispatch(buyProduct())
         alert('Zlecenie zostanie wykonane niezwłocznie po otrzymaniu zapłaty')
     }
 
-    const payment = cart.reduce((sum, value) => sum + value.price, 0)
-
     const list = cart.map(product => (
-        <li>
+        <li key={product.id}>
             <div>
                 <p className={'name'}>{product.name}</p>
             </div>
@@ -26,7 +29,6 @@ const CartPage = ({cart, setCartState}) => {
             <button className={'addToCart'} onClick={() => deleteElement(product.id)}>Usuń z koszyka</button>
         </li>
     ))
-
     return (
         <div className={'cart'}>
             <h2>koszyk</h2>

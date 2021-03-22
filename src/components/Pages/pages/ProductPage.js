@@ -1,23 +1,30 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux'
+
+import {addProduct} from "../../../actions/appActions";
 
 import items from '../../../DataBase'
 
 import arrow from '../../../images/arrow.png'
 
-const ProductPage = ({match, cart, setCartState}) => {
+const ProductPage = ({match}) => {
+
+    const dispatch = useDispatch();
+    const id = useSelector(store => store.products).length
+
     const addToCart = (name, price) => {
         const order = {
-            id: cart.length,
-            name: name,
-            price: price
+            id: id + 1,
+            name,
+            price,
         }
-        setCartState(prevState => [...prevState, order])
+        dispatch(addProduct(order))
     }
 
     const list = items.map(product => {
         if (product.type === match.params.id)
-            return <li>
+            return <li key={product.id}>
                 <div>
                     <p className={'name'}>{product.name}</p>
                 </div>
@@ -28,6 +35,7 @@ const ProductPage = ({match, cart, setCartState}) => {
                     koszyka
                 </button>
             </li>
+        else return null
     })
 
     return (

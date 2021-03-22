@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 const list = [
     {name: "Koszyk", path: '/cart'},
@@ -8,7 +9,8 @@ const list = [
     {name: "Strona główna", path: '/', exact: true},
 ]
 
-const Menu = ({ordersNumber}) => {
+const Menu = () => {
+    const ordersNumber = useSelector(store => store.products).length;
     const menu = list.map(item => {
             if (item.name !== 'Koszyk') return <li key={item.name}>
                 <NavLink to={item.path} exact={item.exact ? item.exact : false}>{item.name}</NavLink>

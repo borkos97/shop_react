@@ -10,16 +10,15 @@ import ContactPage from './pages/ContactPage'
 import CartPage from './pages/CartPage'
 import ErrorPage from './pages/ErrorPage'
 
-const Page = ({cart, setCartState}) => {
+const Page = () => {
     return(
         <>
             <Switch>
                 <Route path={"/"} exact component={HomePage} />
                 <Route path={"/products"} component={ProductListPage} />
-                <Route path={"/product/:id"} render={(matchProps) => <ProductPage {...matchProps} cart={cart} setCartState={setCartState}/>} />
+                <Route path={"/product/:id"} component={ProductPage} />
                 <Route path={"/contact"} component={ContactPage} />
-                <Route path={"/cart"} component={() => <CartPage cart={cart}
-                                                                 setCartState={setCartState}/> }/>
+                <Route path={"/cart"} component={CartPage}/>
                 <Route component={ErrorPage} />
             </Switch>
         </>
